@@ -80,13 +80,10 @@ def final_processing():
     
     for c in CATEGORIES:
         all_medians_of_medians.append(round(np.median(all_median[c]), 2))
-        all_std_of_medians.append(round(np.std(all_std[c]), 2))   
+        all_std_of_medians.append(round(np.std(all_median[c]), 2))   
      
     data = {"Category" : CATEGORIES, "Median of medians" : all_medians_of_medians, "Std of medians" : all_std_of_medians}
     df = pd.DataFrame(data).to_csv(f"{OUTPUT_PATH}\\final_out.csv", index=False) 
-
-    
-
 
 #main part
 if __name__ == '__main__':
