@@ -4,6 +4,22 @@ import os
 import random
 from concurrent.futures import ProcessPoolExecutor as Pool
 
+#work with pandas
+#print(df[["cat1"]["cat2"]])
+#if pandas reads smth like object:
+#for examle:
+#Russia
+#Mexica
+#Germany
+#NULL
+#dtype=object
+#pandas has method dropna(). It delete all lines with null. 
+# If we use dropna(subset="cat1"), it will delete all lines, where cat1 is null.
+#sum = df.sum() - this method summ all fields (with numbers?)
+#merge - method, which join two df
+#df_f=df.loc[(df["cat1"]>35) & (df["cat2"]=="Russia")]
+#df_f.count()
+
 #const values
 CATEGORIES = ['A', 'B', 'C', 'D']
 NUM_FILES = 5
