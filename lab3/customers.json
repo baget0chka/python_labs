@@ -1,0 +1,9 @@
+{
+  "table_name": "customers",
+  "columns": ["id", "name", "email"],
+  "rows": [
+    ["Ivan Ivanov", "ivan@example.com"],
+    ["Anna Petrova", "anna@example.com"],
+    ["Sergey Smirnov", "sergey@example.com"]
+  ]
+}
