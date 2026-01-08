@@ -24,7 +24,7 @@ def check_row(row):
 def manual_input():
     columns = []
     rows = []
-    columns_cnt = input("Введите количество столбцов в таблице (не считая id): ").strip()
+    columns_cnt = input("Введите количество столбцов в таблице: ").strip()
     while (not columns_cnt.isdigit() or columns_cnt == ""): 
         columns_cnt = input("Введите количество столбцов в таблице: ").strip()
     while (int(columns_cnt) <= 0):
@@ -37,7 +37,6 @@ def manual_input():
         while not column.isalnum():
             column = input(f"Введите название {i+1} столбца: ").strip()
         columns.append(column)
-    columns.insert(0, "id")
     
     rows_cnt = input("Введите количество строк в таблице: ").strip()
     while (not rows_cnt.isdigit() or rows_cnt == ""): 
@@ -45,7 +44,6 @@ def manual_input():
     while (int(rows_cnt) <= 0):
         rows_cnt = input("Введите количество строк в таблице: ").strip()
     
-    id = 1
     print("Введите данные строк, используя в качестве разделителя |")
     for i in range(int(rows_cnt)):
         row = input(f"Введите данные {i+1} строки: ").strip()
@@ -58,8 +56,6 @@ def manual_input():
         row = check_row(row)
         
         if len(row) == int(columns_cnt):
-            row.insert(0, id)
-            id += 1
             rows.append(row)
 
     return columns, rows
@@ -76,15 +72,12 @@ def csv_input():
             for col in columns:
                 if not col.isalnum():
                     columns.remove(col)
-            columns.insert(0, "id")
             id = 1
             for row in reader:
                 row = [r.strip() for r in row]
                 row = check_row(row)
                 
                 if len(row) == len(columns):
-                    row.insert(0, id)
-                    id += 1
                     rows.append(row)
 
     except FileNotFoundError:
@@ -111,16 +104,12 @@ def json_input():
         for col in data["columns"]:
             if col.strip().isalnum():
                 columns.append(col.strip())
-        columns.insert(0, "id")
 
-        id = 1
         for row in data["rows"]:
             row = [r.strip() for r in row]
             row = check_row(row)
 
             if len(row) == len(columns):
-                row.insert(0, id)
-                id += 1
                 rows.append(row)
 
         return table_name, columns, rows

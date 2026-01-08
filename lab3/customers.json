@@ -2,8 +2,8 @@
   "table_name": "customers",
   "columns": ["id", "name", "email"],
   "rows": [
-    ["Ivan Ivanov", "ivan@example.com"],
-    ["Anna Petrova", "anna@example.com"],
-    ["Sergey Smirnov", "sergey@example.com"]
+    [1, "Ivan Ivanov", "ivan@example.com"],
+    [2, "Anna Petrova", "anna@example.com"],
+    [3, "Sergey Smirnov", "sergey@example.com"]
   ]
 }
