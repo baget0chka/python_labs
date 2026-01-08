@@ -37,6 +37,7 @@ def manual_input():
         while not column.isalnum():
             column = input(f"Введите название {i+1} столбца: ").strip()
         columns.append(column)
+    columns.insert(0, "id")
     
     rows_cnt = input("Введите количество строк в таблице: ").strip()
     while (not rows_cnt.isdigit() or rows_cnt == ""): 
@@ -75,6 +76,7 @@ def csv_input():
             for col in columns:
                 if not col.isalnum():
                     columns.remove(col)
+            columns.insert(0, "id")
             id = 1
             for row in reader:
                 row = [r.strip() for r in row]
@@ -109,6 +111,7 @@ def json_input():
         for col in data["columns"]:
             if col.strip().isalnum():
                 columns.append(col.strip())
+        columns.insert(0, "id")
 
         id = 1
         for row in data["rows"]:
